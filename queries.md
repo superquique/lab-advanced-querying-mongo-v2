@@ -27,6 +27,9 @@
       $gt: 5000
     }
   },
+  sort: {
+    number_of_employees: 1
+  },
   limit: 20
 }
 
@@ -66,12 +69,12 @@
     $and: [
       {
         founded_year: {
-          $lte: 2010
+          $lt: 2010
         }
       },
       {
         'ipo.valuation_amount': {
-          $gt: 1000000000
+          $gt: 100000000
         }
       }
     ]
@@ -138,14 +141,7 @@
 {
   filter: {
     founded_month: {
-      $in: [
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ]
+      $gte: 7
     }
   },
   limit: 1000
@@ -159,15 +155,7 @@
 {
   filter: {
     founded_day: {
-      $in: [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ]
+      $lte: 7
     }
   },
   sort: {
@@ -186,11 +174,11 @@
 {
   filter: {
     founded_year: {
-      $gte: 2010
+      $gt: 2010
     }
   },
   sort: {
-    'acquisition.price_amount': 1
+    'acquisition.price_amount': -1
   },
   project: {
     name: 1,
@@ -274,7 +262,7 @@ f
       },
       {
         'acquisition.acquired_year': {
-          $gte: 2011
+          $gt: 2010
         }
       }
     ]
