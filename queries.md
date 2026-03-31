@@ -173,7 +173,7 @@
 <!-- Your Query Goes Here -->
 {
   filter: {
-    founded_year: {
+    'acquisition.acquired_year': {
       $gt: 2010
     }
   },
